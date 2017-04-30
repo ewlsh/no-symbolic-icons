@@ -1,23 +1,11 @@
-.icon-mode-symbolic-notification > StIcon {
+.icon-mode-symbolic > StIcon {
     -st-icon-style: symbolic;
 }
 
-.icon-mode-regular-notification > StIcon {
+.icon-mode-regular > StIcon {
     -st-icon-style: regular;
 }
 
-.icon-mode-request-notification > StIcon {
-    -st-icon-style: request;
-}
-
-.icon-mode-symbolic {
-    -st-icon-style: symbolic;
-}
-
-.icon-mode-regular {
-    -st-icon-style: regular;
-}
-
-.icon-mode-request {
+.icon-mode-request > StIcon {
     -st-icon-style: request;
 }
