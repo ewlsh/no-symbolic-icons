@@ -1,0 +1,10 @@
+{
+  "description": "Sets the shell to regular or request icon mode. Disables all symbolic icons for notifications and the app menu.",
+  "name": "No Symbolic Icons",
+  "shell-version": [
+    "3.24"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.no-symbolic-icons",
+  "uuid": "no-symbolic-icons@evanwelsh.com",
+  "version": 1
+}
