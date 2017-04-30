@@ -24,6 +24,14 @@ function init() { /* We don't need to init anything */ }
 function enable() {
     this.settings = Convenience.getSettings();
 
+    if (this.settings.get_boolean('app-menu')) {
+        modify_app_menu();
+    }
+
+    if (this.settings.get_boolean('notifications')) {
+        inject_notification_icon_mode();
+    }
+
     this._iconModeChangedSig = this.settings.connect('changed::icon-mode', Lang.bind(this, function () {
         unmodify_app_menu();
 
@@ -51,14 +59,6 @@ function enable() {
             modify_app_menu();
         }
     }));
-
-    if (this.settings.get_boolean('app-menu')) {
-        modify_app_menu();
-    }
-
-    if (this.settings.get_boolean('notifications')) {
-        inject_notification_icon_mode();
-    }
 }
 
 function disable() {
@@ -69,18 +69,13 @@ function disable() {
 
     remove_notification_icon_mode();
     unmodify_app_menu();
-
 }
 
 function update_notification_icon_mode() {
     let icon_mode_name = this.settings.get_string('icon-mode');
     let icon_mode = null;
 
-    let icon_box = Main.panel.statusArea.appMenu._iconBox;
-
     for (let mode of Object.keys(IconMode)) {
-        icon_box.remove_style_class_name(IconMode[mode].css);
-
         if (IconMode[mode].name === icon_mode_name) {
             icon_mode = IconMode[mode];
         }
@@ -114,8 +109,6 @@ function modify_app_menu() {
     let icon_box = Main.panel.statusArea.appMenu._iconBox;
 
     for (let mode of Object.keys(IconMode)) {
-        icon_box.remove_style_class_name(IconMode[mode].css);
-
         if (IconMode[mode].name === icon_mode_name) {
             icon_mode = IconMode[mode];
         }
